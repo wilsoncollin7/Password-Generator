@@ -1,11 +1,9 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-alert("synced")
-
 // Write password to the #password input
 function writePassword() {
-  
+
   var passwordText = document.querySelector("#password");
   var lower = "abcdefghijklmnopqrstuvwxyz";
   var upperLower = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -19,21 +17,50 @@ function writePassword() {
   var specialUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!#$%&'()*+,-./:;<=>?@][^_`{|}~";
   var specialLowerUpperNum = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!#$%&'()*+,-./:;<=>?@][^_`{|}~";
   
+  var charNumber = prompt("How many charaters?")
   var wantLower = confirm("Do you want lower case?");
   var wantUpper = confirm("Do you want upper case?");
   var wantNum = confirm("Do you want numbers?");
   var wantSpecial = confirm("Do you want special characters?");
 
-  // if (lower = false $$ )
+  var password = function generatePass () {
+
+  }
+
+  if ((wantLower === true) && (wantUpper = true) && (wantNum === true) && (wantSpecial === true)) {
+    alert("all true")
+
+  } else if ((wantLower === true) && (wantUpper === true) && (wantNum === false) && (wantSpecial === false)) {
+    alert("ttff")
+  }else if ((wantLower === true) && (wantUpper === false) && (wantNum === false) && (wantSpecial === false)) {
+    alert("tfff")
+  }else if ((wantLower === false) && (wantUpper === true) && (wantNum === false) && (wantSpecial === false)) {
+    alert("ftff")
+  } else if ((wantLower === true) && (wantUpper === false) && (wantNum === true) && (wantSpecial === false)) {
+    alert("tftf")
+  } else if ((wantLower === false) && (wantUpper === true) && (wantNum === true) && (wantSpecial === false)) {
+    alert("fttf")
+  } else if ((wantLower === true) && (wantUpper === false) && (wantNum === true) && (wantSpecial === true)) {
+    alert("tftt")
+  } else if ((wantLower === false) && (wantUpper === true) && (wantNum === true) && (wantSpecial === true)) {
+    alert("fttt")
+  } else if ((wantLower === true) && (wantUpper === false) && (wantNum === false) && (wantSpecial === true)) {
+    alert("tfft")
+  } else if ((wantLower === false) && (wantUpper === true) && (wantNum === false) && (wantSpecial === true)) {
+    alert("ftft")
+  } else if ((wantLower === false) && (wantUpper === false) && (wantNum === false) && (wantSpecial === false)) {
+    alert("ffff")
+  };
   
-  // var password = generatePassword(event) {
+   
+  
     
-  // };
+  
   
 
   passwordText.value = password;
 
-}
+};
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
