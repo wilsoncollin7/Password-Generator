@@ -12,6 +12,7 @@ function writePassword() {
   var numberLower = "abcdefghijklmnopqrstuvwxyz1234567890";
   var numberUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
   var specialLowerNum = "abcdefghijklmnopqrstuvwxyz1234567890!#$%&'()*+,-./:;<=>?@][^_`{|}~";
+  var specialUpperLower = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!#$%&'()*+,-./:;<=>?@][^_`{|}~"
   var specialUpperNum = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!#$%&'()*+,-./:;<=>?@][^_`{|}~";
   var specialLower = "abcdefghijklmnopqrstuvwxyz!#$%&'()*+,-./:;<=>?@][^_`{|}~";
   var specialUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!#$%&'()*+,-./:;<=>?@][^_`{|}~";
@@ -43,8 +44,10 @@ function writePassword() {
       generatePass(specialLower);
     } else if ((wantLower === true) && (wantUpper === false) && (wantNum === false) && (wantSpecial === false)) {
       generatePass(lower);
-    } else if ((wantLower === true) && (wantUpper === false) && (wantNum === true) && (wantSpecial === false)) {
+    } else if ((wantLower === true) && (wantUpper === true) && (wantNum === true) && (wantSpecial === false)) {
       generatePass(numbersLowerUpper);
+    } else if ((wantLower === true) && (wantUpper === true) && (wantNum === false) && (wantSpecial === true)) {
+      generatePass(specialUpperLower);
     } else if ((wantLower === false) && (wantUpper === true) && (wantNum === false) && (wantSpecial === false)) {
       generatePass(upper);
     } else if ((wantLower === true) && (wantUpper === false) && (wantNum === true) && (wantSpecial === false)) {
