@@ -1,5 +1,41 @@
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
+var generateBtn = $("#generate");
+var wantLower = true;
+var wantUpper = true;
+var wantNum = true;
+var wantSpecial = true;
+
+$("#inlineCheckbox1").on("change", function() {
+  if ($(this).is(':checked')) {
+    wantLower = true;
+  } else {
+    wantLower = false;
+  }
+});
+
+$("#inlineCheckbox2").on("change", function() {
+  if ($(this).is(':checked')) {
+    wantUpper = true;
+  } else {
+    wantUpper = false;
+  }
+});
+
+$("#inlineCheckbox3").on("change", function() {
+  if ($(this).is(':checked')) {
+    wantNum = true;
+  } else {
+    wantNum = false;
+  }
+});
+
+$("#inlineCheckbox4").on("change", function() {
+  if ($(this).is(':checked')) {
+    wantSpecial = true;
+  } else {
+    wantSpecial = false;
+  }
+});
 
 // Write password to the #password input
 function writePassword() {
@@ -17,14 +53,10 @@ function writePassword() {
   var specialLower = "abcdefghijklmnopqrstuvwxyz!#$%&'()*+,-./:;<=>?@][^_`{|}~";
   var specialUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!#$%&'()*+,-./:;<=>?@][^_`{|}~";
   var specialLowerUpperNum = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!#$%&'()*+,-./:;<=>?@][^_`{|}~";
-  var charNumber = prompt("How many charaters?")
+  var charNumber = document.querySelector("#passLength").value
   /* Condition for the length of the password */
   if ((charNumber < 129) && (charNumber > 7 )) {
     /* Pop ups to see what the user wants */
-    var wantLower = confirm("Do you want lower case?");
-    var wantUpper = confirm("Do you want upper case?");
-    var wantNum = confirm("Do you want numbers?");
-    var wantSpecial = confirm("Do you want special characters?");
     var pass = "";
     /* Function to select the random characters */
     function generatePass(x) {
@@ -33,10 +65,9 @@ function writePassword() {
       for (var i = 0, n = charSet.length; i < length; ++i) {
           pass += charSet.charAt(Math.floor(Math.random() * n));
       }
-      console.log(pass);
     };
     /* Large if else section for the logic of the site */
-    if ((wantLower === true) && (wantUpper = true) && (wantNum === true) && (wantSpecial === true)) {
+    if ((wantLower === true) && (wantUpper === true) && (wantNum === true) && (wantSpecial === true)) {
       generatePass(specialLowerUpperNum);
     } else if ((wantLower === true) && (wantUpper === true) && (wantNum === false) && (wantSpecial === false)) {
       generatePass(upperLower);
@@ -66,11 +97,10 @@ function writePassword() {
     /* Assigning the password to the text on the site */
     var password = pass;
     passwordText.value = password;
-
   } else {
     alert("Password cannot be longer than 128 characters or shorter than 8 charaters.");
   };
 };
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.on("click", writePassword);
